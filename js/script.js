@@ -1,87 +1,73 @@
-window.onload = () => {
+async function carregarProdutos() {
 
-renderizarProdutos();
+    try {
 
-}
+        const resposta = await fetch("produtos.json");
 
-function renderizarProdutos(){
+        const produtos = await resposta.json();
 
-const lista =
-document.getElementById("lista-produtos");
+        const lista =
+            document.getElementById("lista-produtos");
 
-if(!lista) return;
+        if (!lista) return;
 
-lista.innerHTML = "";
+        lista.innerHTML = "";
 
-lista.className = "produtos-grid";
+        lista.className = "produtos-grid";
 
-produtos.forEach(produto=>{
+        produtos.forEach(produto => {
 
-lista.innerHTML += `
+            lista.innerHTML += `
 
-<div class="produto">
+            <div class="produto">
 
-<img src="${produto.imagem}?auto=format&fit=crop&w=800&q=80">
+                <img src="${produto.imagem}">
 
-<div class="produto-info">
+                <div class="produto-info">
 
-<h3>${produto.nome}</h3>
+                    <h3>${produto.nome}</h3>
 
-<p>${produto.categoria}</p>
+                    <p>${produto.categoria}</p>
 
-<div class="preco">
+                    <p>${produto.descricao}</p>
 
-${produto.preco}
+                    <div class="preco">
+                        R$ ${produto.preco}
+                    </div>
 
-</div>
+                    <a
+                    class="comprar"
+                    target="_blank"
+                    href="https://wa.me/5519999999999?text=Olá! Tenho interesse em ${produto.nome}">
 
-<a
-class="comprar"
-href="https://wa.me/5519999999999?text=Tenho interesse em ${produto.nome}"
-target="_blank">
+                    Comprar
 
-Comprar
+                    </a>
 
-</a>
+                </div>
 
-</div>
+            </div>
 
-</div>
+            `;
+        });
 
-`;
+    }
 
-});
+    catch (erro) {
 
-}
+        console.error(erro);
 
-function pesquisarProdutos(){
-
-const termo=
-
-document
-.getElementById("pesquisa")
-.value
-.toLowerCase();
-
-const cards=
-document.querySelectorAll(".produto");
-
-cards.forEach(card=>{
-
-card.style.display=
-card.innerText.toLowerCase().includes(termo)
-? "block"
-: "none";
-
-});
+    }
 
 }
 
-function toggleMenu(){
+function toggleMenu() {
 
-document
-.getElementById("menu")
-.classList
-.toggle("active");
+    document
+        .getElementById("menu")
+        .classList
+        .toggle("active");
 
 }
+
+window.onload = carregarProdutos;
