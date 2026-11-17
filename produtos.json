@@ -3,7 +3,7 @@
     "id": 1,
     "nome": "Vestido Floral Vintage",
     "categoria": "Moda Feminina",
-    "preco": 59.90,
+    "preco": 59.9,
     "descricao": "Vestido floral em excelente estado.",
     "imagem": "https://images.unsplash.com/photo-1496747611176-843222e1e57f?auto=format&fit=crop&w=800&q=80"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "nome": "Camisa Polo Clássica",
     "categoria": "Moda Masculina",
-    "preco": 49.90,
+    "preco": 49.9,
     "descricao": "Camisa polo confortável para uso casual.",
     "imagem": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80"
   },
@@ -19,16 +19,16 @@
     "id": 3,
     "nome": "Tênis Casual",
     "categoria": "Calçados",
-    "preco": 89.90,
+    "preco": 89.9,
     "descricao": "Tênis confortável para o dia a dia.",
     "imagem": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 1794938066158,
+    "nome": "Dorflex",
+    "categoria": "Diversos",
+    "preco": 4.59,
+    "descricao": "dorflex",
+    "imagem": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80"
   }
 ]
-{
-  "id": 1794938066158,
-  "nome": "Dorflex",
-  "categoria": "Diversos",
-  "preco": 4.59,
-  "descricao": "dorflex",
-  "imagem": ""
-}
