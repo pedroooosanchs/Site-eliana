@@ -1,31 +1,73 @@
-const produtos = [
+async function carregarProdutos() {
 
-{
-nome:"Vestido Floral Vintage",
-categoria:"Feminino",
-preco:"R$ 59,90",
-imagem:"https://images.unsplash.com/photo-1496747611176-843222e1e57f"
-},
+    try {
 
-{
-nome:"Camisa Polo Clássica",
-categoria:"Masculino",
-preco:"R$ 49,90",
-imagem:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
-},
+        const resposta = await fetch("produtos.json");
 
-{
-nome:"Bolsa Feminina",
-categoria:"Acessórios",
-preco:"R$ 69,90",
-imagem:"https://images.unsplash.com/photo-1584917865442-de89df76afd3"
-},
+        const produtos = await resposta.json();
 
-{
-nome:"Tênis Casual",
-categoria:"Calçados",
-preco:"R$ 99,90",
-imagem:"https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+        const lista =
+            document.getElementById("lista-produtos");
+
+        if (!lista) return;
+
+        lista.innerHTML = "";
+
+        lista.className = "produtos-grid";
+
+        produtos.forEach(produto => {
+
+            lista.innerHTML += `
+
+            <div class="produto">
+
+                <img src="${produto.imagem}">
+
+                <div class="produto-info">
+
+                    <h3>${produto.nome}</h3>
+
+                    <p>${produto.categoria}</p>
+
+                    <p>${produto.descricao}</p>
+
+                    <div class="preco">
+                        R$ ${produto.preco}
+                    </div>
+
+                    <a
+                    class="comprar"
+                    target="_blank"
+                    href="https://wa.me/5519999999999?text=Olá! Tenho interesse em ${produto.nome}">
+
+                    Comprar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            `;
+        });
+
+    }
+
+    catch (erro) {
+
+        console.error(erro);
+
+    }
+
 }
 
-];
+function toggleMenu() {
+
+    document
+        .getElementById("menu")
+        .classList
+        .toggle("active");
+
+}
+
+window.onload = carregarProdutos;
