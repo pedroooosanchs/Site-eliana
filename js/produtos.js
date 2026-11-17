@@ -6,68 +6,60 @@ async function carregarProdutos() {
 
         const produtos = await resposta.json();
 
-        const lista =
+        const listaProdutos =
             document.getElementById("lista-produtos");
 
-        if (!lista) return;
+        if (!listaProdutos) return;
 
-        lista.innerHTML = "";
+        listaProdutos.innerHTML = "";
 
-        lista.className = "produtos-grid";
+        listaProdutos.classList.add("produtos-grid");
 
         produtos.forEach(produto => {
 
-            lista.innerHTML += `
+            listaProdutos.innerHTML += `
 
-            <div class="produto">
+                <div class="produto">
 
-                <img src="${produto.imagem}">
+                    <img src="${produto.imagem}" alt="${produto.nome}">
 
-                <div class="produto-info">
+                    <div class="produto-info">
 
-                    <h3>${produto.nome}</h3>
+                        <h3>${produto.nome}</h3>
 
-                    <p>${produto.categoria}</p>
+                        <p>${produto.categoria}</p>
 
-                    <p>${produto.descricao}</p>
+                        <p>${produto.descricao}</p>
 
-                    <div class="preco">
-                        R$ ${produto.preco}
+                        <div class="preco">
+                            R$ ${Number(produto.preco).toFixed(2)}
+                        </div>
+
+                        <a
+                            class="comprar"
+                            target="_blank"
+                            href="https://wa.me/5519999999999?text=Olá! Tenho interesse em ${produto.nome}">
+
+                            Comprar
+
+                        </a>
+
                     </div>
-
-                    <a
-                    class="comprar"
-                    target="_blank"
-                    href="https://wa.me/5519999999999?text=Olá! Tenho interesse em ${produto.nome}">
-
-                    Comprar
-
-                    </a>
 
                 </div>
 
-            </div>
-
             `;
+
         });
 
     }
 
     catch (erro) {
 
-        console.error(erro);
+        console.error("Erro ao carregar produtos:", erro);
 
     }
 
 }
 
-function toggleMenu() {
-
-    document
-        .getElementById("menu")
-        .classList
-        .toggle("active");
-
-}
-
-window.onload = carregarProdutos;
+window.addEventListener("DOMContentLoaded", carregarProdutos);
