@@ -9,11 +9,11 @@
   },
   {
     "id": 2,
-    "nome": "Camisa Polo Clássica",
-    "categoria": "Moda Masculina",
+    "nome": "Camisa Last FM",
+    "categoria": "Moda Feminina",
     "preco": 49.9,
     "descricao": "Camisa polo confortável para uso casual.",
-    "imagem": "https://imgur.com/a/f3XZte5"
+    "imagem": "Site-eliana/top-vermelho.jpg"
   },
   {
     "id": 3,
