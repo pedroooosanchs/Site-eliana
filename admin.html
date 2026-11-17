@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Painel Administrativo</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:#fff7f5;
+
+padding:30px;
+
+}
+
+.login-box,
+.admin-box{
+
+max-width:800px;
+
+margin:auto;
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+}
+
+h1{
+
+color:#c75b56;
+
+margin-bottom:20px;
+
+}
+
+input,
+textarea,
+select{
+
+width:100%;
+
+padding:12px;
+
+margin:10px 0;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+}
+
+button{
+
+background:#d97a73;
+
+color:white;
+
+border:none;
+
+padding:15px;
+
+width:100%;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+margin-top:10px;
+
+}
+
+button:hover{
+
+background:#c75b56;
+
+}
+
+#adminPanel{
+
+display:none;
+
+}
+
+#preview{
+
+max-width:300px;
+
+margin-top:20px;
+
+display:none;
+
+border-radius:15px;
+
+}
+
+pre{
+
+background:#f7f7f7;
+
+padding:20px;
+
+overflow:auto;
+
+border-radius:10px;
+
+margin-top:20px;
+
+}
+
+.copy-btn{
+
+background:#28a745;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box" id="loginBox">
+
+<h1>
+🦋 Login Administrativo
+</h1>
+
+<input
+type="text"
+id="usuario"
+placeholder="Usuário">
+
+<input
+type="password"
+id="senha"
+placeholder="Senha">
+
+<button onclick="login()">
+
+Entrar
+
+</button>
+
+</div>
+
+<div class="admin-box" id="adminPanel">
+
+<h1>
+Painel Administrativo
+</h1>
+
+<input
+type="text"
+id="nome"
+placeholder="Nome do Produto">
+
+<input
+type="number"
+id="preco"
+placeholder="Preço">
+
+<select id="categoria">
+
+<option>Moda Feminina</option>
+
+<option>Moda Masculina</option>
+
+<option>Calçados</option>
+
+<option>Acessórios</option>
+
+<option>Decoração</option>
+
+<option>Diversos</option>
+
+</select>
+
+<textarea
+id="descricao"
+placeholder="Descrição do produto"></textarea>
+
+<input
+type="text"
+id="imagem"
+placeholder="URL da imagem"
+onkeyup="atualizarPreview()">
+
+<img id="preview">
+
+<button onclick="gerarJSON()">
+
+Gerar Produto
+
+</button>
+
+<pre id="resultado"></pre>
+
+<button
+class="copy-btn"
+onclick="copiarJSON()">
+
+Copiar JSON
+
+</button>
+
+</div>
+
+<script>
+
+const LOGIN = "admin";
+const SENHA = "revoada123";
+
+function login(){
+
+let usuario =
+document
+.getElementById("usuario")
+.value;
+
+let senha =
+document
+.getElementById("senha")
+.value;
+
+if(
+usuario === LOGIN &&
+senha === SENHA
+){
+
+document
+.getElementById("loginBox")
+.style.display="none";
+
+document
+.getElementById("adminPanel")
+.style.display="block";
+
+}
+else{
+
+alert("Usuário ou senha inválidos.");
+
+}
+
+}
+
+function atualizarPreview(){
+
+const imagem =
+document.getElementById("imagem").value;
+
+const preview =
+document.getElementById("preview");
+
+if(imagem){
+
+preview.src = imagem;
+preview.style.display = "block";
+
+}
+
+}
+
+function gerarJSON(){
+
+const produto = {
+
+id: Date.now(),
+
+nome:
+document.getElementById("nome").value,
+
+categoria:
+document.getElementById("categoria").value,
+
+preco:
+parseFloat(
+document
+.getElementById("preco")
+.value
+),
+
+descricao:
+document
+.getElementById("descricao")
+.value,
+
+imagem:
+document
+.getElementById("imagem")
+.value
+
+};
+
+document
+.getElementById("resultado")
+.textContent =
+JSON.stringify(produto,null,2);
+
+}
+
+function copiarJSON(){
+
+const texto =
+document
+.getElementById("resultado")
+.textContent;
+
+navigator.clipboard.writeText(texto);
+
+alert("JSON copiado!");
+
+}
+
+</script>
+
+</body>
+
+</html>
