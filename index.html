@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brechó Revoada</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+
+:root{
+--primary:#D97A73;
+--primary-dark:#C75B56;
+--bg:#FFF7F5;
+--card:#FFFFFF;
+--text:#3F312D;
+--shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial, sans-serif;
+background:var(--bg);
+color:var(--text);
+}
+
+/* HEADER */
+
+header{
+background:#fff;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:2rem;
+font-weight:bold;
+color:var(--primary-dark);
+}
+
+nav{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#444;
+font-weight:600;
+}
+
+nav a:hover{
+color:var(--primary);
+}
+
+/* HERO */
+
+.hero{
+height:500px;
+background:
+linear-gradient(
+rgba(217,122,115,.75),
+rgba(217,122,115,.75)
+),
+url("https://images.unsplash.com/photo-1483985988355-763728e1935b");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero-content{
+max-width:700px;
+padding:20px;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-bottom:30px;
+}
+
+.hero a{
+
+background:white;
+color:var(--primary-dark);
+
+padding:15px 30px;
+border-radius:30px;
+
+text-decoration:none;
+font-weight:bold;
+}
+
+/* CATEGORIAS */
+
+.section{
+padding:70px 20px;
+}
+
+.container{
+max-width:1300px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:40px;
+font-size:2rem;
+}
+
+.categories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.category{
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:var(--shadow);
+transition:.3s;
+}
+
+.category:hover{
+transform:translateY(-6px);
+}
+
+.category h3{
+margin-top:10px;
+}
+
+/* PRODUTOS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:var(--shadow);
+}
+
+.card img{
+width:100%;
+height:380px;
+object-fit:cover;
+}
+
+.card-body{
+padding:20px;
+}
+
+.tag{
+background:#F5D2CE;
+color:#B94E47;
+display:inline-block;
+padding:6px 12px;
+border-radius:15px;
+font-size:12px;
+margin-bottom:10px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+color:#666;
+line-height:1.5;
+}
+
+.price{
+font-size:1.5rem;
+font-weight:bold;
+margin-top:15px;
+color:var(--primary-dark);
+}
+
+.btn{
+display:block;
+margin-top:15px;
+text-align:center;
+background:var(--primary);
+color:white;
+padding:14px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:5000;
+}
+
+.modal-content{
+background:white;
+max-width:900px;
+width:100%;
+border-radius:20px;
+overflow:hidden;
+display:grid;
+grid-template-columns:1fr 1fr;
+}
+
+.modal-content img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.info{
+padding:30px;
+}
+
+.info h2{
+margin-bottom:15px;
+}
+
+.info p{
+line-height:1.6;
+}
+
+.close{
+float:right;
+cursor:pointer;
+font-size:30px;
+}
+
+/* SOBRE */
+
+.about{
+background:#FBE5E2;
+padding:80px 20px;
+text-align:center;
+}
+
+.about p{
+max-width:900px;
+margin:auto;
+margin-top:20px;
+line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+background:#EAC4BE;
+padding:40px;
+text-align:center;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+
+width:65px;
+height:65px;
+
+background:#25D366;
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+color:white;
+font-size:30px;
+text-decoration:none;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.modal-content{
+grid-template-columns:1fr;
+}
+
+nav{
+display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+🦋 Brechó Revoada
+</div>
+
+<nav>
+
+<a href="#">Início</a>
+<a href="#">Novidades</a>
+<a href="#">Moda Feminina</a>
+<a href="#">Moda Masculina</a>
+<a href="#">Calçados</a>
+<a href="#">Acessórios</a>
+<a href="#">Casa e Decoração</a>
+<a href="#">Diversos</a>
+<a href="#">Promoções</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Brechó Revoada</h1>
+
+<p>
+Peças únicas, garimpos especiais e produtos para todos os estilos.
+</p>
+
+<a href="#produtos">
+Ver Produtos
+</a>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+Categorias
+</h2>
+
+<div class="categories">
+
+<div class="category">👗<h3>Moda Feminina</h3></div>
+
+<div class="category">👔<h3>Moda Masculina</h3></div>
+
+<div class="category">👟<h3>Calçados</h3></div>
+
+<div class="category">👜<h3>Acessórios</h3></div>
+
+<div class="category">🏡<h3>Decoração</h3></div>
+
+<div class="category">🎁<h3>Diversos</h3></div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="produtos">
+
+<div class="container">
+
+<h2 class="section-title">
+Produtos em Destaque
+</h2>
+
+<div class="products">
+
+<div class="card">
+
+<img src="vestido-geometrico.jpg">
+
+<div class="card-body">
+
+<span class="tag">Plus Size</span>
+
+<h3>Vestido Estampa Geométrica</h3>
+
+<p>
+Vestido confortável e elegante para diversas ocasiões.
+</p>
+
+<div class="price">
+R$ 89,90
+</div>
+
+<a href="#" class="btn"
+onclick="abrirProduto(
+'vestido-geometrico.jpg',
+'Vestido Estampa Geométrica',
+'Vestido longo com estampa geométrica exclusiva.',
+'89,90'
+)">
+Ver Produto
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="top-vermelho.jpg">
+
+<div class="card-body">
+
+<span class="tag">Vintage</span>
+
+<h3>Top Vermelho Retrô</h3>
+
+<p>
+Visual moderno inspirado na moda dos anos 2000.
+</p>
+
+<div class="price">
+R$ 39,90
+</div>
+
+<a href="#" class="btn"
+onclick="abrirProduto(
+'top-vermelho.jpg',
+'Top Vermelho Retrô',
+'Peça estilosa para compor looks modernos.',
+'39,90'
+)">
+Ver Produto
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="camisa-polo.jpg">
+
+<div class="card-body">
+
+<span class="tag">Masculino</span>
+
+<h3>Camisa Polo Listrada</h3>
+
+<p>
+Modelo casual confortável.
+</p>
+
+<div class="price">
+R$ 59,90
+</div>
+
+<a href="#" class="btn"
+onclick="abrirProduto(
+'camisa-polo.jpg',
+'Camisa Polo Listrada',
+'Camisa polo clássica e confortável.',
+'59,90'
+)">
+Ver Produto
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="blusa-vinho.jpg">
+
+<div class="card-body">
+
+<span class="tag">Destaque</span>
+
+<h3>Blusa Vinho Acetinada</h3>
+
+<p>
+Peça elegante para diversas ocasiões.
+</p>
+
+<div class="price">
+R$ 49,90
+</div>
+
+<a href="#" class="btn"
+onclick="abrirProduto(
+'blusa-vinho.jpg',
+'Blusa Vinho Acetinada',
+'Elegante e sofisticada.',
+'49,90'
+)">
+Ver Produto
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="about">
+
+<h2>
+Sobre o Brechó Revoada
+</h2>
+
+<p>
+Acreditamos que cada peça merece uma nova história. Nosso objetivo é conectar pessoas a produtos únicos, moda consciente e oportunidades especiais.
+</p>
+
+</section>
+
+<footer>
+
+<h3>Brechó Revoada</h3>
+
+<p>Peças únicas para novos voos.</p>
+
+</footer>
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<img id="modalImg">
+
+<div class="info">
+
+<div class="close" onclick="fecharProduto()">✖</div>
+
+<h2 id="modalNome"></h2>
+
+<p id="modalDesc"></p>
+
+<br>
+
+<h2 id="modalPreco"></h2>
+
+<br>
+
+<a
+id="whatsBtn"
+class="btn"
+target="_blank">
+
+Finalizar Compra pelo WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<a
+class="whatsapp"
+target="_blank"
+href="https://wa.me/5519999999999">
+
+💬
+
+</a>
+
+<script>
+
+function abrirProduto(img,nome,desc,preco){
+
+document.getElementById('modal').style.display='flex';
+
+document.getElementById('modalImg').src=img;
+
+document.getElementById('modalNome').innerText=nome;
+
+document.getElementById('modalDesc').innerText=desc;
+
+document.getElementById('modalPreco').innerText='R$ '+preco;
+
+document.getElementById('whatsBtn').href=
+'https://wa.me/5519999999999?text=Olá! Tenho interesse em '+nome;
+
+}
+
+function fecharProduto(){
+
+document.getElementById('modal').style.display='none';
+
+}
+
+</script>
+
+</body>
+</html>
