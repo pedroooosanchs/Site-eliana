@@ -3,7 +3,6 @@ async function carregarProdutos() {
     try {
 
         const resposta = await fetch("produtos.json");
-
         const produtos = await resposta.json();
 
         const listaProdutos =
@@ -12,41 +11,40 @@ async function carregarProdutos() {
         if (!listaProdutos) return;
 
         listaProdutos.innerHTML = "";
-
         listaProdutos.classList.add("produtos-grid");
 
         produtos.forEach(produto => {
 
             listaProdutos.innerHTML += `
 
-                <div class="produto">
+            <div class="produto">
 
-                    <img src="${produto.imagem}" alt="${produto.nome}">
+                <img src="${produto.imagem}" alt="${produto.nome}">
 
-                    <div class="produto-info">
+                <div class="produto-info">
 
-                        <h3>${produto.nome}</h3>
+                    <h3>${produto.nome}</h3>
 
-                        <p>${produto.categoria}</p>
+                    <p>${produto.categoria}</p>
 
-                        <p>${produto.descricao}</p>
+                    <p>${produto.descricao}</p>
 
-                        <div class="preco">
-                            R$ ${Number(produto.preco).toFixed(2)}
-                        </div>
-
-                        <a
-                            class="comprar"
-                            target="_blank"
-                            href="https://wa.me/5519992603374?text=Olá! Tenho interesse em ${produto.nome}">
-
-                            Comprar
-
-                        </a>
-
+                    <div class="preco">
+                        R$ ${Number(produto.preco).toFixed(2)}
                     </div>
 
+                    <a
+                        class="comprar"
+                        target="_blank"
+                        href="https://wa.me/5519992603374?text=Olá! Tenho interesse em ${produto.nome}">
+
+                        Comprar
+
+                    </a>
+
                 </div>
+
+            </div>
 
             `;
 
@@ -62,4 +60,7 @@ async function carregarProdutos() {
 
 }
 
-window.addEventListener("DOMContentLoaded", carregarProdutos);
+window.addEventListener(
+    "DOMContentLoaded",
+    carregarProdutos
+);
