@@ -38,7 +38,7 @@ async function carregarProdutos() {
                     <a
                     class="comprar"
                     target="_blank"
-                    href="https://wa.me/5519999999999?text=Olá! Tenho interesse em ${produto.nome}">
+                    href="https://wa.me/5519992603374?text=Olá! Tenho interesse em ${produto.nome}">
 
                     Comprar
 
