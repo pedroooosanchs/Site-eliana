@@ -17,10 +17,10 @@
   },
   {
     "id": 3,
-    "nome": "Tênis Casual",
-    "categoria": "Calçados",
+    "nome": "Vestido Veludo Vermelho",
+    "categoria": "Feminino",
     "preco": 89.9,
-    "descricao": "Tênis confortável para o dia a dia.",
-    "imagem": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
+    "descricao": "Vestido perfeito para dar close.",
+    "imagem": "vestido-aetinado.jpeg"
   }
 ]
